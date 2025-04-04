@@ -1,33 +1,129 @@
+:root {
+    --primary-color: #f5e6ff;
+    --secondary-color: #8a4daf;
+}
+
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f0f0f0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #ffffff;
+    color: #000000;
+    line-height: 1.6;
+}
+
+.sidebar {
+    background-color: var(--primary-color);
     height: 100vh;
-  }
-  
-  .container {
-    text-align: center;
-    background: white;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  }
-  
-  button {
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
+    position: fixed;
+    padding: 20px;
+}
+
+.site-title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+.nav-link {
+    color: #000000 !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 0;
+    border-radius: 4px;
+    transition: transform 0.2s ease;
+}
+
+.nav-link:hover {
+  transform: translateX(5px);
+}
+
+/*
+.nav-link:hover, .nav-link.active {
+    background-color: var(--secondary-color);
+    color: white !important;
+}
+    */
+
+.content-section {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0s linear 0.4s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    padding: 4rem 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+
+.content-section.active {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.4s ease, visibility 0s linear;
+    z-index: 1;
+    position: relative;
+}
+
+main {
+    position: relative;
+    min-height: 100vh;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.essay-item {
+    margin-bottom: 3rem;
+}
+
+.essay-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.essay-date {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.gallery-grid img {
     border-radius: 8px;
-    background: #007acc;
-    color: white;
-    cursor: pointer;
-    transition: background 0.3s;
-  }
-  
-  button:hover {
-    background: #005f99;
-  }
-  
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+}
+
+
+@media (max-width: 768px) {
+    .sidebar {
+        position: static;
+        height: auto;
+    }
+    
+    .content-section {
+        padding: 2rem 1rem;
+    }
+
+@media (max-width: 576px) {
+    .site-title {
+        font-size: 1.5rem;
+    }
+    .nav-link {
+        padding: 0.25rem;
+    }
+    h2 {
+        font-size: 1.75rem;
+    }
+}
+
+
+}

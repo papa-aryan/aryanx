@@ -27,4 +27,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 300);
       });
     });
+
+
+    const bouncyElements = document.querySelectorAll(".bouncy-text");
+
+    bouncyElements.forEach(el => {
+      setInterval(() => {
+        el.classList.remove("animate__pulse");
+        void el.offsetWidth; // trigger reflow
+        el.classList.add("animate__pulse");
+      }, 1800);
+    });
+
   });
